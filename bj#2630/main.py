@@ -12,3 +12,4 @@ for i in range(100):
         break;
     else:
         continue
+# 백준 1075번입니다.
