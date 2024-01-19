@@ -1,27 +1,29 @@
 class Solution {
     
     public long solution(int[] sequence) {
+        long answer = Long.MIN_VALUE;
         
-        for(int i = 0; i < sequence.length; i++){
-            if (i % 2 == 1)
-                sequence[i] = sequence[i] * (-1);
-        }
+        long[] minusDP = new long[sequence.length];
+        long[] plusDP = new long[sequence.length];
         
-        int currMax = -100000;
-        int globalMax = -100000;
+        int minus = -1;
+        int plus = 1;
         
-        for(int i = 0; i < sequence.length; i++){
-            if (i % 2 == 1){
-                currMax = Math.max(e, currMax + e);
-                globalMax = Math.max(currMax, globalMax);
-            }else{
-                currMax = Math.max(e, currMax + e);
-                globalMax = Math.max(currMax, globalMax);
+       
+        
+        for (int i = 0; i < sequence.length; i++){
+            if(i == 0){
+                minusDP[i] = sequence[0] * minus ;
+                plusDP[i] = sequence[0] * plus;
+            } else{
+            minusDP[i] = Math.max(minusDP[i-1] + sequence[i] * minus,sequence[i] * minus);
+            plusDP[i] = Math.max(plusDP[i-1] + sequence[i] * plus, sequence[i] * plus);
             }
             
+            minus *= -1;
+            plus *= -1;
+            answer = Math.max(plusDP[i], Math.max(answer, minusDP[i]));
         }
-        
-        return globalMax;
+        return answer;
     }
-        
 }
