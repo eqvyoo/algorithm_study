@@ -11,19 +11,16 @@ public class Main {
             answer = 1;
             return;
         }
-        if (T.length() == 0){
+        if (T.length() == S.length()){
             return;
         }
         if (T.endsWith("A")){
-            T = T.substring(0, T.length()-1);
-            dfs(S,T);
+            dfs(S,T.substring(0, T.length()-1));
         }
         if (T.startsWith("B")){
             T = sb.reverse().toString();
-            T = T.substring(0, T.length()-1);
-            dfs(S,T);
+            dfs(S,T.substring(0, T.length()-1));
         }
-
     }
 
 
