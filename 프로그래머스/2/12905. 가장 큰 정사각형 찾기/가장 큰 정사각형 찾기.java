@@ -2,20 +2,11 @@ class Solution
 {
     public int solution(int [][]board)
     {
-       int[][] map = new int[board.length + 1][board[0].length + 1];
+        int answer = 1234;
 
-        int maxLen = 0;
-        for (int i = 1; i <= board.length; i++) {
-            for (int j = 1; j <= board[0].length; j++) {
-                if(board[i-1][j-1] != 0) {
-                    int min = Math.min(Math.min(map[i - 1][j], map[i][j - 1]), map[i - 1][j - 1]);
-                    map[i][j] = min + 1;
+        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+        System.out.println("Hello Java");
 
-                    maxLen = Math.max(maxLen, min + 1);
-                }
-            }
-        }
-
-        return maxLen * maxLen;
+        return answer;
     }
 }
