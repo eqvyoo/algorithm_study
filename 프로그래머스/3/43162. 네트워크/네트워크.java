@@ -11,10 +11,9 @@ class Solution {
     
     public int solution(int n, int[][] computers) {
         int answer = 0;
-        int len = computers.length;
-        boolean[] visited = new boolean[len];
+        boolean[] visited = new boolean[n];
         
-        for (int i = 0; i < len; i++){
+        for (int i = 0; i < n; i++){
             if(visited[i] == false){
                 answer++;
                 dfs(i,visited, computers);
