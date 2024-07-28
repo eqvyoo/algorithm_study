@@ -14,10 +14,6 @@ class Solution {
         int len = computers.length;
         boolean[] visited = new boolean[len];
         
-        for(int i = 0; i < len; i++){
-            visited[i] = false;
-        }
-        
         for (int i = 0; i < len; i++){
             if(visited[i] == false){
                 answer++;
